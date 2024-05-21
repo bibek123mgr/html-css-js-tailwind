@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-weight: bold;
+            color: white;
+        }
+
+        :root {
+            --mainColor: #2c2c2c;
+            --secColor: #303030;
+            --hoverColor: #1a1a1a;
+            --borderColor: #f0f0f0;
+            --cardColor: #3c3c3c;
+            --buttonColor: #ff6200;
+        }
+
+        body {
+            background: var(--mainColor);
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            height: 70px;
+            display: flex;
+            padding: 0 40px;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+        }
+
+        ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            position: relative;
+            transition: 0.3s color;
+        }
+
+        ul li a::before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        ul li a:hover::before {
+            width: 100%;
+            visibility: visible;
+        }
+
+        .logo {
+            border: 1px solid var(--borderColor);
+            padding: 2px 5px;
+        }
+
+        main {
+            padding: 20px;
+            height: calc(100vh - 70px);
+            width: 100%;
+            background: var(--secColor);
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: "left middle right";
+        }
+
+        .item1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 1px solid black;
+            grid-area: left;
+            padding: 20px;
+        }
+
+        .item2 {
+            border-right: 1px solid black;
+            grid-area: middle;
+            padding: 20px;
+        }
+
+        .item3 {
+            grid-area: right;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .filter {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-right: 5px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+
+        p {
+            font-size: 14px;
+        }
+
+        .head {
+            margin-top: 10px;
+            margin-bottom: 2px;
+            text-decoration: underline;
+        }
+
+        .page {
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .menu {
+            font-size: 18px;
+            display: none;
+            background: none;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            border-bottom: 2px solid var(--borderColor);
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .item1,
+            .item3 {
+                display: none;
+            }
+
+            main {
+
+                grid-template-areas: "middle middle middle";
+            }
+
+            .item2 {
+                border: none;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu {
+                display: block;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            Logo.
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Offers</a></li>
+                <li><a href="">Buy Now</a></li>
+                <li><a href="">Sell Now</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="">Sign Up</a></li>
+            </ul>
+        </nav>
+        <button class="menu">
+            Menu
+        </button>
+    </header>
+    <main>
+        <div class="item item1">
+            <h1>Filter</h1>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">100-200</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">200-300</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">300-400</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">400-500</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">500-600</label>
+            </div>
+
+            <h1>Sort</h1>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">100-200</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">200-300</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">300-400</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">400-500</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">500-600</label>
+            </div>
+
+            <h1>Filter</h1>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">100-200</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">200-300</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">300-400</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">400-500</label>
+            </div>
+            <div class="filter">
+                <input type="checkbox" name="" id="">
+                <label for="cat">500-600</label>
+            </div>
+            <!-- Add more filters as needed -->
+        </div>
+        <div class="item item2">
+            <h1 class="head">What is Lorem Ipsum?</h1>
+            <p class="page">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                been the
+                industry's standard
+                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                a
+                type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially
+                unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+            <h1 class="head">What is Lorem Ipsum?</h1>
+            <p class="page">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                been the
+                industry's standard
+                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                a
+                type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially
+                unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+
+        </div>
+        <div class="item item3">
+            <img src="https://framerusercontent.com/images/uWLsIXEb9MuxzuXqxXkljgk95RA.jpg" alt="fwemf men ">
+        </div>
+    </main>
+</body>
+
+</html>

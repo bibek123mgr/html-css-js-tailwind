@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primaryColor: #302f2f;
+            --primaryText: white;
+            --hoverColor: white;
+            /* Add a hover color if necessary */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-weight: 700;
+            color: var(--primaryText);
+        }
+
+        body {
+            background-color: var(--primaryColor);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav,
+        ul {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li a {
+            text-decoration: none;
+            position: relative;
+            color: var(--primaryText);
+            transition: color 0.3s;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            border-bottom: 1px solid black;
+        }
+
+        nav {
+            gap: 50px;
+        }
+
+        span {
+            width: 1px;
+            height: 20px;
+            background: white;
+        }
+
+        .menu li a {
+            padding: 5px;
+        }
+
+        .menu li a::before {
+            content: ' ';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background-color: var(--primaryText);
+            transition: width 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            visibility: hidden;
+        }
+
+        .menu li a:hover::before {
+            width: 100%;
+            visibility: visible;
+        }
+
+        .Signup {
+            background-color: #f76f39;
+            padding: 10px 8px;
+            color: black;
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        button {
+            background: none;
+        }
+
+        .togglerhide {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            nav.show {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: black;
+                padding: 20px;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                top: 0;
+                height: 100%;
+                z-index: 10;
+                align-items: start;
+
+            }
+
+            .menu span {
+                display: none;
+            }
+
+            .menu {
+                margin-top: 40px;
+                flex-direction: column;
+                gap: 40px;
+                align-items: start;
+
+            }
+
+            .toggle {
+                display: block;
+            }
+
+            .toggle button {
+                background: none;
+                outline: none;
+                border: none;
+                color: var(--primaryText);
+                font-size: 1.5rem;
+            }
+
+            .togglerhide {
+                display: block;
+                width: 30px;
+                height: auto;
+                background: none;
+                border: none;
+                outline: none;
+            }
+
+            .togglerhide i {
+                width: 100%;
+            }
+        }
+
+        .form-control {
+            width: 300px;
+        }
+
+        .form-control input,
+        .form-control select,
+        .form-control button {
+            width: 100%;
+        }
+
+        .form-control button {
+            height: 35px;
+            background: black;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .form-control select {
+            background: blue;
+        }
+
+        .upper {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #myCanvas {
+            margin: 10px 0;
+            border: 1px solid black;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="../public/pngwing.com (1).png" alt="">
+            <h2>Logo.</h2>
+        </div>
+        <nav class="left">
+            <button class="togglerhide"><i class="fa-solid fa-xmark"></i></button>
+            <ul class="menu">
+                <li><a href="">Home</a></li>
+                <span></span>
+                <li><a href="">About Us</a></li>
+                <span></span>
+                <li><a href="">Contact Us</a></li>
+                <span></span>
+                <li><a href="">Services</a></li>
+            </ul>
+            <ul class="auth">
+                <i class="fa-regular fa-user"></i>
+                <li class="login"><a href="">Login</a></li>
+                <span></span>
+                <li class="Signup"><a href="">Sign Up</a></li>
+            </ul>
+        </nav>
+        <div class="toggle">
+            <button id="togglebtn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+    <main>
+        <div class="upper">
+            <div class="form-control">
+                <label for="color-picker">Color Picker</label>
+                <input type="color" id="color-picker">
+            </div>
+            <div class="form-control">
+                <label for="color-picker">canva background</label>
+                <input type="color" id="canvabg">
+            </div>
+            <div class="form-control">
+                <label for="color-picker">Penceil Thikness</label>
+                <select id="pencil-thikness">
+                    <option value="1">1</option>
+                </select>
+            </div>
+        </div>
+        <canvas id="myCanvas" width="940" height="500"></canvas>
+        <div class="upper">
+            <div class="form-control">
+                <button id="clearbtn">Clear all</button>
+            </div>
+            <div class="form-control">
+                <button id="savebtn">save signature</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const toggler = document.querySelector('#togglebtn');
+        const menu = document.querySelector('.left');
+        const togglerhide = document.querySelector('.togglerhide');
+
+        togglerhide.addEventListener('click', () => {
+            menu.classList.remove('show');
+        });
+
+        toggler.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+
+        const pencilThikness = document.querySelector('#pencil-thikness');
+        for (let i = 1; i <= 10; i++) {
+            let option = new Option(i, i);
+            pencilThikness.appendChild(option);
+        }
+
+        const colorPicker = document.querySelector("#color-picker")
+        const canvabg = document.querySelector("#canvabg")
+        const canvas = document.querySelector("#myCanvas")
+        const clearall = document.querySelector("#clearbtn")
+        const save = document.querySelector("#savebtn")
+
+        const ctx = canvas.getContext("2d")
+        isDrawing = false
+        lastX = 0;
+        lastY = 0;
+
+        colorPicker.addEventListener('change', (e) => {
+            ctx.strokeStyle = e.target.value
+            ctx.fillStyle = e.target.value
+        })
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true
+            lastX = e.offsetX
+            lastY = e.offsetY
+        })
+        canvabg.addEventListener('change', (e) => {
+            ctx.fillStyle = e.target.value
+            ctx.fillRect(0, 0, 940, 500)
+        })
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return
+            ctx.beginPath()
+            ctx.moveTo(lastX, lastY)
+            ctx.lineTo(e.offsetX, e.offsetY)
+            ctx.stroke()
+            lastX = e.offsetX
+            lastY = e.offsetY
+        })
+        pencilThikness.addEventListener('change', (e) => {
+            ctx.lineWidth = e.target.value
+        })
+        clearall.addEventListener('click', (e) => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+        })
+        save.addEventListener('click', () => {
+            let link = document.createElement('a')
+            link.download = 'mySignature.png'
+            link.href = canvas.toDataURL()
+            link.click()
+        })
+
+        canvas.addEventListener('mouseup', () => isDrawing = false)
+        canvas.addEventListener('mouseout', () => isDrawing = false)
+
+    </script>
+</body>
+
+</html>
