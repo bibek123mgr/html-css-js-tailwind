@@ -1,0 +1,19 @@
+
+        * {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .absolute-navbar {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding-left: 20px;
+            right: 0;
+            background-color: rgb(255, 255, 255);
+            z-index: 10;
+        }
+
+        .dark .absolute-navbar {
+            background-color: #1a202c;
+        }

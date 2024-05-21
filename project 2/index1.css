@@ -1,0 +1,200 @@
+        :root {
+            --primaryColor: #302f2f;
+            --primaryText: white;
+            --hoverColor: white;
+            /* Add a hover color if necessary */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-weight: 700;
+            color: var(--primaryText);
+        }
+
+        body {
+            background-color: var(--primaryColor);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav,
+        ul {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li a {
+            text-decoration: none;
+            position: relative;
+            color: var(--primaryText);
+            transition: color 0.3s;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            border-bottom: 1px solid black;
+        }
+
+        nav {
+            gap: 50px;
+        }
+
+        span {
+            width: 1px;
+            height: 20px;
+            background: white;
+        }
+
+        .menu li a {
+            padding: 5px;
+        }
+
+        .menu li a::before {
+            content: ' ';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background-color: var(--primaryText);
+            transition: width 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            visibility: hidden;
+        }
+
+        .menu li a:hover::before {
+            width: 100%;
+            visibility: visible;
+        }
+
+        .Signup {
+            background-color: #f76f39;
+            padding: 10px 8px;
+            color: black;
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        button {
+            background: none;
+        }
+
+        .togglerhide {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            nav.show {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: black;
+                padding: 20px;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                top: 0;
+                height: 100%;
+                z-index: 10;
+                align-items: start;
+
+            }
+
+            .menu span {
+                display: none;
+            }
+
+            .menu {
+                margin-top: 40px;
+                flex-direction: column;
+                gap: 40px;
+                align-items: start;
+
+            }
+
+            .toggle {
+                display: block;
+            }
+
+            .toggle button {
+                background: none;
+                outline: none;
+                border: none;
+                color: var(--primaryText);
+                font-size: 1.5rem;
+            }
+
+            .togglerhide {
+                display: block;
+                width: 30px;
+                height: auto;
+                background: none;
+                border: none;
+                outline: none;
+            }
+
+            .togglerhide i {
+                width: 100%;
+            }
+        }
+
+        .form-control {
+            width: 300px;
+        }
+
+        .form-control input,
+        .form-control select,
+        .form-control button {
+            width: 100%;
+        }
+
+        .form-control button {
+            height: 35px;
+            background: black;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .form-control select {
+            background: blue;
+        }
+
+        .upper {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #myCanvas {
+            margin: 10px 0;
+            border: 1px solid black;
+            background: white;
+        }
